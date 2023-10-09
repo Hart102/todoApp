@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/output.css" />
+  </head>
+  <body class="bg-neutral-200">
+    <section
+      class="container relative h-screen mx-auto rounded p-5 bg-white lg:w-[70%] lg:max-h-32 lg:my-10"
+    >
+      <header class="flex items-center justify-between">
+        <p class="font-bold text-3xl text-neutral-400 italic">Todo</p>
+        <button
+          type="button"
+          id="createBtn"
+          class="py-1 px-5 drop-shadow-lg rounded-full text-white bg-green-600"
+        >
+          Create
+        </button>
+      </header>
+
+      <!-- Rendering Todos here -->
+      <main class="h-screen text-sm mt-5 lg:h-[500px] lg:px-4">
+        <div
+          class="grid grid-cols-2 gap-5 lg:grid-cols-3"
+          id="todoContainer"
+        ></div>
+      </main>
+
+      <!-- Create Todos -->
+      <div
+        class="hidden absolute top-0 left-0 h-screen w-[100%] px-2 py-14 lg:h-[600px] bg-rgba"
+        id="todo-form"
+      >
+        <form
+          class="container mx-auto flex flex-col bg-white border p-5 text-sm lg:w-2/3"
+        >
+          <input
+            type="text"
+            id="title"
+            class="font-bold border-b p-3 outline-none"
+            placeholder="Title"
+          />
+          <textarea
+            id="description"
+            class="border-b p-3 outline-none h-28"
+            placeholder="Description"
+          ></textarea>
+
+          <div class="flex justify-end gap-16 my-5">
+            <button class="rounded-full py-2 px-4 hover:bg-gray-200">
+              <i class="fa fa-times text-red-500 text-2xl"></i>
+            </button>
+            <button
+              type="button"
+              id="addTodoBtn"
+              class="rounded-full py-2 px-3 hover:bg-gray-200"
+            >
+              <i class="fa fa-check text-green-500 text-2xl"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script src="./scripts/index.js"></script>
+  <script src="./scripts/getTodos.js"></script>
+</html>
+
+<!-- ./video/upload.mp4 -->
+<!-- npx tailwindcss -i ./css/input.css -o ./css/output.css --watch -->
