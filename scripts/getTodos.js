@@ -18,8 +18,4 @@ if (todos && todos.length > 0) {
   todos.map((todo) => {
     selector("#todoContainer").innerHTML += todoTemplate(todo);
   });
-
-  if (todos.length > 9) {
-    selector("main").classList.add("overflow-y-scroll");
-  }
 }
