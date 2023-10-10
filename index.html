@@ -16,10 +16,19 @@
     >
       <header class="flex items-center justify-between">
         <p class="font-bold text-3xl text-neutral-400 italic">Todo</p>
+        <!-- Delete Todos -->
+        <div class="deleteAll hidden gap-28 mt-20" id="deleteAll">
+          <button
+            type="submit"
+            class="py-1 px-3 rounded bg-gray-100 active:bg-green-300"
+            onclick="deleteTodos()"
+          >
+            Clear All
+          </button>
+        </div>
         <button
-          type="button"
           id="createBtn"
-          class="py-1 px-5 drop-shadow-lg rounded-full text-white bg-green-600"
+          class="py-1 px-3 rounded bg-gray-100 active:bg-green-300"
         >
           Create
         </button>

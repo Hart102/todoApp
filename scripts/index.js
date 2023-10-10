@@ -17,7 +17,7 @@ const toggleTodoForm = () => {
 const getInput = (title, description) => {
   if (title.value.length > 0 && description.value.length > 0) {
     return {
-      id: 0,
+      id: "",
       title: title.value,
       description: description.value,
     };
@@ -31,6 +31,8 @@ const storeTodos = (todoObject) => {
       localStorage.setItem("todos", JSON.stringify([]));
     }
     const fetchedTodos = JSON.parse(localStorage.getItem("todos"));
+    // Assign id to each todo
+    todoObject = { ...todoObject, id: fetchedTodos.length + 1 };
     fetchedTodos.push(todoObject);
     localStorage.setItem("todos", JSON.stringify(fetchedTodos));
     clearInput();

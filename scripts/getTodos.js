@@ -9,7 +9,7 @@ const todoTemplate = (todo) => {
             </div>
             <div class="flex justify-between">
               <i class="fa fa-pencil p-2 rounded bg-blue-300"></i>
-              <i class="fa fa-trash p-2 rounded bg-red-300"></i>
+              <input type="checkbox" onClick="getMultipleTodoId(${todo.id})"/>              
             </div>
         </article>`;
 };
@@ -19,3 +19,28 @@ if (todos && todos.length > 0) {
     selector("#todoContainer").innerHTML += todoTemplate(todo);
   });
 }
+
+const idContainer = [];
+const getMultipleTodoId = (todoId) => {
+  if (todoId) {
+    idContainer.push(todoId);
+    activateDeleteAllBtn();
+    return idContainer;
+  }
+};
+
+// Delete todos
+const deleteTodos = () => {
+  for (let i = 0; i < idContainer.length; ) {
+    todos.splice(
+      todos.findIndex((todo) => todo.id === idContainer[i]),
+      1
+    );
+    i++;
+  }
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+
+const activateDeleteAllBtn = () => {
+  if (idContainer.length) selector(".deleteAll").classList.remove("hidden");
+};
